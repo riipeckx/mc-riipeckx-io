@@ -27,7 +27,14 @@
   "ftbChunksCheck": false,
   "gomlReservedCheck": true,
   "mineColoniesCheck": false,
-  "buySellHandler": {},
+  "buySellHandler": {
+    "buyType": "MONEY",
+    "buyValue": -1.0,
+    "buyIngredients": [],
+    "sellType": "MONEY",
+    "sellValue": -1.0,
+    "sellIngredient": []
+  },
   "maxBuyBlocks": -1,
   "lenientBlockEntityCheck": false,
   "breakBlockBlacklist": [],
