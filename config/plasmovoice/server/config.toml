@@ -11,6 +11,11 @@ ip = "0.0.0.0"
 port = 0
 
 [voice]
+# Supported sample rates:
+# 8000
+# 12000
+# 24000
+# 48000
 client_mod_required = false
 client_mod_required_check_timeout_ms = 3000
 keep_alive_timeout_ms = 15000
@@ -22,7 +27,13 @@ default_distance = 16
 distances = [8, 16, 32]
 
 [voice.opus]
-bitrate = -1000
+# Opus application mode
+# Supported values: VOIP, AUDIO, RESTRICTED_LOWDELAY
+# Default is VOIP
 mode = "VOIP"
+# Opus bitrate
+# Supported values: -1000 (auto), -1 (max), [500-512_000]
+# Default is -1000
+bitrate = -1000
 
 [voice.weights]
