@@ -1,0 +1,14 @@
+# root
+world
+logs
+.fabric
+crash-reports
+libraries
+versions
+usercache.json
+
+# Plasmovoice config
+config/plasmovoice/server/languages/.crowdin/
+
+# Chunky config
+config/chunky/tasks/
