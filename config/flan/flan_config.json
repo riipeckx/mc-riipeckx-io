@@ -2,7 +2,7 @@
   "__comment": "For help with the config refer to https://github.com/Flemmli97/Flan/wiki/Config",
   "configVersion": 4,
   "lang": "en_us",
-  "startingBlocks": 500,
+  "startingBlocks": 5000,
   "maxClaimBlocks": 5000,
   "ticksForNextBlock": 600,
   "minClaimsize": 100,
@@ -24,29 +24,14 @@
   "claimDisplayActionBar": false,
   "permissionLevel": 2,
   "autoClaimStructures": false,
-  "ftbChunksCheck": true,
+  "ftbChunksCheck": false,
   "gomlReservedCheck": true,
-  "mineColoniesCheck": true,
-  "buySellHandler": {
-    "buyType": "MONEY",
-    "buyValue": -1.0,
-    "buyIngredients": [],
-    "sellType": "MONEY",
-    "sellValue": -1.0,
-    "sellIngredient": []
-  },
+  "mineColoniesCheck": false,
+  "buySellHandler": {},
   "maxBuyBlocks": -1,
   "lenientBlockEntityCheck": false,
-  "breakBlockBlacklist": [
-    "universal_graves:grave",
-    "yigd:grave"
-  ],
-  "interactBlockBlacklist": [
-    "universal_graves:grave",
-    "yigd:grave",
-    "waystones",
-    "universal_shops:trade_block"
-  ],
+  "breakBlockBlacklist": [],
+  "interactBlockBlacklist": [],
   "breakBlockEntityTagBlacklist": [],
   "interactBlockEntityTagBlacklist": [
     "IsDeathChest",
@@ -60,21 +45,11 @@
     "graves.marker"
   ],
   "customItemPermission": [
-    "@c:wrenches-flan:interact_block",
-    "appliedenergistics2:nether_quartz_wrench-flan:interact_block",
-    "appliedenergistics2:certus_quartz_wrench-flan:interact_block"
+    "@c:wrenches-flan:interact_block"
   ],
   "customBlockPermission": [],
-  "customEntityPermission": [
-    "taterzens:npc-flan:trading"
-  ],
-  "leftClickBlockPermission": [
-    "@storagedrawers:drawers-flan:open_container",
-    "mekanism:basic_bin-flan:open_container",
-    "mekanism:advanced_bin-flan:open_container",
-    "mekanism:ultimate_bin-flan:open_container",
-    "mekanism:creative_bin-flan:open_container"
-  ],
+  "customEntityPermission": [],
+  "leftClickBlockPermission": [],
   "dropTicks": 6000,
   "inactivityTimeDays": 30,
   "inactivityBlocksMax": 2000,
@@ -143,7 +118,6 @@
       "flan:animal_spawn": true,
       "flan:ender_pearl": true,
       "flan:flight": true,
-      "flan:edit_potions": true,
       "flan:target_block": true,
       "flan:break_non_living": true,
       "flan:fire_spread": true,
