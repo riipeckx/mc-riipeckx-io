@@ -62,7 +62,6 @@
   "enableLogs": false,
   "defaultGroups": {
     "Membre": {
-      "flan:edit_claim": true,
       "flan:break": true,
       "flan:interact_sign": true,
       "flan:chorus_fruit": true,
@@ -80,12 +79,14 @@
   },
   "globalDefaultPerms": {
     "*": {
+      "flan:edit_claim": "ALLFALSE",
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
       "flan:enderman": "ALLTRUE",
       "flan:sculk": "ALLTRUE",
       "flan:projectiles": "ALLTRUE",
-      "flan:snow_golem": "ALLFALSE",
+      "flan:wither": "ALLTRUE",
+      "flan:snow_golem": "ALLTRUE",
       "flan:button_lever": "ALLTRUE",
       "flan:hurt_player": "ALLTRUE",
       "flan:lightning": "ALLTRUE",
