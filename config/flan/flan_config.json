@@ -62,7 +62,9 @@
   "enableLogs": false,
   "defaultGroups": {
     "Visitor": {},
-    "Co-Owner": {}
+    "Co-Owner": {
+      "flan:edit_claim": true
+    }
   },
   "globalDefaultPerms": {
     "*": {}
