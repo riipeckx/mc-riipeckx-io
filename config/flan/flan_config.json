@@ -65,7 +65,6 @@
       "flan:break": true,
       "flan:interact_sign": true,
       "flan:chorus_fruit": true,
-      "flan:raid": true,
       "flan:open_container": true,
       "flan:lectern_take": true,
       "flan:beacon": true,
@@ -79,6 +78,8 @@
   },
   "globalDefaultPerms": {
     "*": {
+      "flan:edit_perms": "ALLFALSE",
+      "flan:raid": "ALLTRUE",
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
       "flan:enderman": "ALLTRUE",
