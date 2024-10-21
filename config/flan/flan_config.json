@@ -62,15 +62,15 @@
   "enableLogs": false,
   "defaultGroups": {
     "Membre": {
-      "flan:break": true,
-      "flan:interact_sign": true,
-      "flan:chorus_fruit": true,
       "flan:open_container": true,
       "flan:lectern_take": true,
+      "flan:break": true,
       "flan:beacon": true,
+      "flan:interact_sign": true,
       "flan:place": true,
       "flan:trample": true,
       "flan:hurt_animal": true,
+      "flan:chorus_fruit": true,
       "flan:interact_block": true,
       "flan:redstone": true,
       "flan:bucket": true
@@ -78,7 +78,6 @@
   },
   "globalDefaultPerms": {
     "*": {
-      "flan:raid": "ALLTRUE",
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
       "flan:enderman": "ALLTRUE",
@@ -113,6 +112,7 @@
       "flan:player_mob_spawn": "ALLFALSE",
       "flan:animal_interact": "ALLTRUE",
       "flan:minecart": "ALLTRUE",
+      "flan:raid": "ALLTRUE",
       "flan:piston_border": "ALLFALSE",
       "flan:mob_spawn": "ALLFALSE",
       "flan:enchantment": "ALLTRUE",
