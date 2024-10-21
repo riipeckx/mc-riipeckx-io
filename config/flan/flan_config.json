@@ -79,13 +79,12 @@
   },
   "globalDefaultPerms": {
     "*": {
-      "flan:edit_claim": false,
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
+      "flan:edit_claim": false,
       "flan:enderman": "ALLTRUE",
       "flan:sculk": "ALLTRUE",
       "flan:projectiles": "ALLTRUE",
-      "flan:wither": "ALLTRUE",
       "flan:snow_golem": "ALLTRUE",
       "flan:button_lever": "ALLTRUE",
       "flan:hurt_player": "ALLTRUE",
@@ -121,6 +120,7 @@
       "flan:trapdoor": "ALLTRUE",
       "flan:no_hunger": "ALLFALSE",
       "flan:lock_items": "ALLFALSE",
+      "flan:wither": "ALLTRUE",
       "flan:bed": "ALLTRUE",
       "flan:itemframe_rotate": "ALLTRUE",
       "flan:trading": "ALLTRUE"
