@@ -76,8 +76,26 @@
       "flan:interact_block": true,
       "flan:redstone": true,
       "flan:bucket": true
-    },
-    "Visiteur": {
+    }
+  },
+  "globalDefaultPerms": {
+    "*": {
+      "flan:enderman": "ALLTRUE",
+      "flan:fire_spread": "ALLTRUE",
+      "flan:sculk": "ALLTRUE",
+      "flan:teleport": "ALLFALSE",
+      "flan:snow_golem": "ALLFALSE",
+      "flan:hurt_player": "ALLTRUE",
+      "flan:lightning": "ALLTRUE",
+      "flan:player_mob_spawn": "ALLFALSE",
+      "flan:piston_border": "ALLFALSE",
+      "flan:water_border": "ALLFALSE",
+      "flan:mob_spawn": "ALLFALSE",
+      "flan:no_hunger": "ALLFALSE",
+      "flan:lock_items": "ALLFALSE",
+      "flan:explosions": "ALLTRUE",
+      "flan:animal_spawn": "ALLFALSE",
+      "flan:edit_potions": "ALLFALSE",
       "flan:armorstand": true,
       "flan:archeology": true,
       "flan:projectiles": true,
@@ -105,26 +123,6 @@
       "flan:bed": true,
       "flan:itemframe_rotate": true,
       "flan:trading": true
-    }
-  },
-  "globalDefaultPerms": {
-    "*": {
-      "flan:enderman": "ALLTRUE",
-      "flan:fire_spread": "ALLTRUE",
-      "flan:sculk": "ALLTRUE",
-      "flan:teleport": "ALLFALSE",
-      "flan:snow_golem": "ALLFALSE",
-      "flan:hurt_player": "ALLTRUE",
-      "flan:lightning": "ALLTRUE",
-      "flan:player_mob_spawn": "ALLFALSE",
-      "flan:piston_border": "ALLFALSE",
-      "flan:water_border": "ALLFALSE",
-      "flan:mob_spawn": "ALLFALSE",
-      "flan:no_hunger": "ALLFALSE",
-      "flan:lock_items": "ALLFALSE",
-      "flan:explosions": "ALLTRUE",
-      "flan:animal_spawn": "ALLFALSE",
-      "flan:edit_potions": "ALLFALSE"
     }
   }
 }
