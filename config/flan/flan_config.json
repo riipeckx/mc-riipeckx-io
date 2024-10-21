@@ -61,14 +61,70 @@
   "offlineProtectActivation": -1,
   "enableLogs": false,
   "defaultGroups": {
-    "Visitor": {},
-    "Co-Owner": {
-      "flan:edit_claim": true
+    "Visiteur": {
+      "flan:anvil": true,
+      "flan:bed": true,
+      "flan:door": true,
+      "flan:fence_gate": true,
+      "flan:trapdoor": true,
+      "flan:button_lever": true,
+      "flan:pressure_plate": true,
+      "flan:noteblock": true,
+      "flan:jukebox": true,
+      "flan:enderchest": true,
+      "flan:enchantment": true,
+      "flan:itemframe_rotate": true,
+      "flan:target_block": true,
+      "flan:projectiles": true,
+      "flan:portal": true,
+      "flan:boat": true,
+      "flan:minecart": true,
+      "flan:ender_pearl": true,
+      "flan:animal_interact": true,
+      "flan:xp": true,
+      "flan:trading": true,
+      "flan:armorstand": true,
+      "flan:break_non_living": true,
+      "flan:drop": true,
+      "flan:pickup": true,
+      "flan:can_stay": true,
+      "flan:archeology": true
+    },
+    "Membre": {
+      "flan:edit_claim": true,
+      "flan:break": true,
+      "flan:place": true,
+      "flan:open_container": true,
+      "flan:interact_block": true,
+      "flan:interact_sign": true,
+      "flan:beacon": true,
+      "flan:redstone": true,
+      "flan:lectern_take": true,
+      "flan:trample": true,
+      "flan:raid": true,
+      "flan:bucket": true,
+      "flan:chorus_fruit": true,
+      "flan:hurt_animal": true
     }
   },
   "globalDefaultPerms": {
     "*": {
-      "flan:edit_potions": "ALLFALSE"
+      "flan:edit_potions": "ALLFALSE",
+      "flan:teleport": "ALLFALSE",
+      "flan:no_hunger": "ALLFALSE",
+      "flan:hurt_player": "ALLTRUE",
+      "flan:explosions": "ALLTRUE",
+      "flan:enderman": "ALLFALSE",
+      "flan:snow_golem": "ALLFALSE",
+      "flan:fire_spread": "ALLFALSE",
+      "flan:water_border": "ALLFALSE",
+      "flan:piston_border": "ALLFALSE",
+      "flan:mob_spawn": "ALLFALSE",
+      "flan:animal_spawn": "ALLFALSE",
+      "flan:lightning": "ALLTRUE",
+      "flan:lock_items": "ALLFALSE",
+      "flan:player_mob_spawn": "ALLFALSE",
+      "flan:sculk": "ALLTRUE"
     }
   }
 }
