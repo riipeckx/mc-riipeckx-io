@@ -4,7 +4,7 @@
   "lang": "en_us",
   "startingBlocks": 2048,
   "maxClaimBlocks": -1,
-  "ticksForNextBlock": 0,
+  "ticksForNextBlock": 600,
   "minClaimsize": 8,
   "defaultClaimDepth": 16,
   "maxClaims": -1,
