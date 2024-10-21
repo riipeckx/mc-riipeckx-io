@@ -6,6 +6,7 @@ crash-reports
 libraries
 versions
 usercache.json
+**/*.log
 
 # Plasmovoice config
 config/plasmovoice/server/languages/.crowdin/
