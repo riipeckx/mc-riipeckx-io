@@ -5,7 +5,7 @@
   "startingBlocks": 2048,
   "maxClaimBlocks": -1,
   "ticksForNextBlock": 0,
-  "minClaimsize": 16,
+  "minClaimsize": 8,
   "defaultClaimDepth": 16,
   "maxClaims": -1,
   "defaultClaimName": "Zone de %s",
@@ -64,7 +64,6 @@
     "Visitor": {
       "flan:archeology": true,
       "flan:armorstand": true,
-      "flan:edit_claim": true,
       "flan:enderman": true,
       "flan:projectiles": true,
       "flan:button_lever": true,
