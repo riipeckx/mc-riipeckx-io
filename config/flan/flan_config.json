@@ -81,7 +81,6 @@
     "*": {
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
-      "flan:edit_claim": false,
       "flan:enderman": "ALLTRUE",
       "flan:sculk": "ALLTRUE",
       "flan:projectiles": "ALLTRUE",
