@@ -116,7 +116,7 @@
       "flan:explosions": "ALLTRUE",
       "flan:enderman": "ALLFALSE",
       "flan:snow_golem": "ALLFALSE",
-      "flan:fire_spread": "ALLFALSE",
+      "flan:fire_spread": "ALLTRUE",
       "flan:water_border": "ALLFALSE",
       "flan:piston_border": "ALLFALSE",
       "flan:mob_spawn": "ALLFALSE",
