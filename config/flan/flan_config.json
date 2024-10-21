@@ -67,6 +67,8 @@
     }
   },
   "globalDefaultPerms": {
-    "*": {}
+    "*": {
+      "flan:edit_potions": "ALLFALSE"
+    }
   }
 }
