@@ -78,7 +78,6 @@
   },
   "globalDefaultPerms": {
     "*": {
-      "flan:edit_perms": false,
       "flan:raid": "ALLTRUE",
       "flan:armorstand": "ALLTRUE",
       "flan:archeology": "ALLTRUE",
