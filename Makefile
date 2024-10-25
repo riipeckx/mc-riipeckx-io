@@ -16,6 +16,9 @@ help: # Print this help message
 start: # Start Minecraft server
 	@rc-service $(SERVICE_NAME) start
 
+dev: # Start development Minecraft server
+	/usr/bin/sh start.sh
+
 stop: # Stop Minecraft server
 	@rc-service $(SERVICE_NAME) stop
 
@@ -28,12 +31,6 @@ console: # Connect to RCON console
 output: # Follow the server logs
 	@/usr/bin/tail -f ./logs/latest.log
 
-	# 
-
-cleanup: # Cleanup server folder
-	@read -p "Are you sure? [y/N] " ans && ans=$${ans:-N} ; \
-	if [ $${ans} = y ] || [ $${ans} = Y ]; then \
-		@/usr/bin/rm -rf .fabric libraries logs versions usercache.json;\
-	else \
-		exit 1;\
-	fi
+clean:
+	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
+	@rm -r .fabric libraries logs versions usercache.json world 2>/dev/null
