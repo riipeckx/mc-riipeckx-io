@@ -1,0 +1,61 @@
+#!/bin/sh
+#
+# PROVIDE: mc-riipeckx-io
+# REQUIRE: networking
+# KEYWORD:
+
+. /etc/rc.subr
+
+name="mc-riipeckx-io"
+rcvar="minecraft_enable"
+
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+
+minecraft_command="/opt/${name}/start.sh"
+pidfile="/var/run/${name}.pid"
+command="/usr/sbin/daemon"
+command_args="-P ${pidfile} -S -r -f ${minecraft_command}"
+
+load_rc_config $name
+: ${minecraft_enable:=no}
+: ${minecraft_servers:=""}
+
+minecraft_start() {
+  _servers=$*
+  if [ -z "$_servers" ]; then
+    _servers="$minecraft_servers"
+  fi
+
+  echo -n "Starting minecraft servers:"
+  for _server in $_servers; do
+    echo -n " ${_server}"
+
+    _dir="/opt/${_server}"
+    _pidfile="/var/run/${_server}.pid"
+    _cmd="${_dir}/start.sh"
+
+    cd "$_dir"
+    /usr/sbin/daemon -P ${_pidfile} -S -r -f ${_cmd}
+  done
+  echo "."
+}
+
+minecraft_stop() {
+  _servers=$*
+  if [ -z "$_servers" ]; then
+    _servers="$minecraft_servers"
+  fi
+
+  echo -n "Stopping minecraft servers:"
+  for _server in $_servers; do
+    echo -n " ${_server}"
+
+    _pidfile="/var/run/${_server}.pid"
+
+    kill $(cat ${_pidfile})
+  done
+  echo "."
+}
+
+run_rc_command $*
