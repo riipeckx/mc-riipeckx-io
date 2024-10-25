@@ -5,6 +5,10 @@ system-provided init program, normally `/sbin/init`.
 
 ## Setup
 
+### Requirements
+
+* `rcon`
+
 In order to setup provided [minecraft](./minecraft) OpenRC service, follow this :
 
 _All commands must be run as root_
