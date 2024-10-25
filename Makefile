@@ -3,9 +3,6 @@
 # Vars
 BASE=$(pwd)
 SERVICE_NAME=mc-riipeckx-io
-RCON_SRV=$(config_get server.ip)
-RCON_PORT=$(config_get rcon.port)
-RCON_PASS=$(config_get rcon.password)
 
 define config_get()
   echo $(grep ${1} "${BASE}/server.properties" | cut -d '=' -f 2)
@@ -29,4 +26,4 @@ status: # Get status from RCON
 	@rc-service $(SERVICE_NAME) status
 
 console: # Send a command via RCON
-	@/usr/bin/rcon -H $(RCON_SRV) -p $(RCON_PORT) -P $(RCON_PASS) $(RUN_ARGS)
+	@/usr/bin/rcon -H $(config_get server.ip) -p $(config_get rcon.port) -P $(config_get rcon.password) $(RUN_ARGS)
