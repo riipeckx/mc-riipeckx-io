@@ -1,0 +1,110 @@
+#!/sbin/openrc-run
+# /etc/init.d/mc-riipeckx-io
+#
+# Minecraft - OpenRC scripts
+# Copyright (C) 2017-2019 João Brázio [joao@brazio.org]
+#
+# Expects the game folder to be located at /srv/minecraft/<instance>
+# Don't use directly the /etc/init.d/minecraft script, create a symlink for you instance.
+#
+# This is an example for Paper:
+# - mkdir -p /srv/minecraft/paper
+# - Download paper jar and place it there
+# - ln -s /etc/init.d/minecraft /etc/init.d/minecraft.paper
+# - cp /etc/conf.d/minecraft /etc/conf.d/minecraft.paper
+#
+# Dependencies:
+# - Java VM at /usr/bin/java
+# - mcrcon [https://github.com/Tiiffi/mcrcon]
+#
+
+USER=nobody
+GROUP=nogroup
+
+INSTANCE=${RC_SVCNAME##*.}
+BASE="/opt/${INSTANCE}"
+PIDFILE="/var/run/${RC_SVCNAME}.pid"
+RCON="/usr/bin/rcon"
+BIN="$(ls ${BASE} -v 2>/dev/null | grep -i "server.*jar\\|craftbukkit.*jar\\|spigot.*jar\\|paper*.*jar\\|minecraft_server.*jar" | head -n 1)"
+
+config_get() {
+  echo $(grep ${1} "${BASE}/server.properties" | cut -d '=' -f 2)
+}
+
+depend() {
+  need net
+  after ipsec
+}
+
+start_pre() {
+  if [ -z "${BIN}" ]; then
+    eerror "${RC_SVCNAME} cannot find a proper server jar."
+    eerror "Check your game installation at ${BASE}."
+    return 1
+  fi
+
+  [ -f "${PIDFILE}" ] && rm ${PIDFILE}
+
+  return 0
+}
+
+start() {
+  ebegin "Starting Minecraft server ${INSTANCE}"
+  start-stop-daemon --start --chdir ${BASE} --pidfile ${PIDFILE} --make-pidfile --exec ${BASE}/start.sh --background
+  eend $?
+}
+
+stop_pre() {
+  if [ ! -f "${BASE}/server.properties" ]; then
+    eerror "${RC_SVCNAME} cannot find a proper server config file."
+    eerror "Check your game installation at ${BASE}."
+    return 1
+  fi
+
+  return 0
+}
+
+stop() {
+  ebegin "Stopping Minecraft server ${INSTANCE}"
+
+  if [ "$(config_get enable-rcon)" = "true" ]; then
+    # Fetch rcon configuration
+    RCON_SRV=$(config_get server.ip)
+    RCON_PORT=$(config_get rcon.port)
+    RCON_PASS=$(config_get rcon.password)
+
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will reboot in 1 min..." 1>/dev/null 2>&1
+    sleep 30
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will reboot in 30 secs..." 1>/dev/null 2>&1
+    sleep 20
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} save-all 1>/dev/null 2>&1
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will reboot in 10 secs..." 1>/dev/null 2>&1
+    sleep 5
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will reboot in 5 secs..." 1>/dev/null 2>&1
+    sleep 5
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} stop 1>/dev/null 2>&1
+
+    i=0
+    PID=$(cat ${PIDFILE})
+
+    while [ "${i}" -le 30 ]; do
+      kill -0 ${PID} 2>/dev/null && sleep 1 || break
+      i=$((i + 1))
+    done
+  fi
+
+  # Hard stop the server
+  start-stop-daemon --stop --chdir ${BASE} --pidfile ${PIDFILE} --user ${USER} --group ${GROUP} --retry 5 2>/dev/null
+  eend 0
+}
+
+status() {
+  if [ "$(config_get enable-rcon)" = "true" ]; then
+    # Fetch rcon configuration
+    RCON_SRV=$(config_get server.ip)
+    RCON_PORT=$(config_get rcon.port)
+    RCON_PASS=$(config_get rcon.password)
+
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "fabric tps"
+  fi
+}
