@@ -50,7 +50,7 @@ start_pre() {
 
 start() {
   ebegin "Starting Minecraft server ${INSTANCE}"
-  start-stop-daemon --start --chdir ${BASE} --pidfile ${PIDFILE} --make-pidfile --exec start.sh
+  start-stop-daemon --start --chdir ${BASE} --pidfile ${PIDFILE} --make-pidfile --exec ${BASE}/start.sh
   eend $?
 }
 
