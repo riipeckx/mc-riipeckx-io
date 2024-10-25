@@ -1,59 +1,104 @@
-#!/bin/sh
+#!/sbin/openrc-run
+# /etc/init.d/minecraft
 #
-# PROVIDE: mc-riipeckx-io
-# REQUIRE: networking
-# KEYWORD:
+# Minecraft - OpenRC scripts
+# Copyright (C) 2017-2019 João Brázio [joao@brazio.org]
+#
+# Expects the game folder to be located at /srv/minecraft/<instance>
+# Don't use directly the /etc/init.d/minecraft script, create a symlink for you instance.
+#
+# This is an example for Paper:
+# - mkdir -p /srv/minecraft/paper
+# - Download paper jar and place it there
+# - ln -s /etc/init.d/minecraft /etc/init.d/minecraft.paper
+# - cp /etc/conf.d/minecraft /etc/conf.d/minecraft.paper
+#
+# Dependencies:
+# - Java VM at /usr/bin/java
+# - mcrcon [https://github.com/Tiiffi/mcrcon]
+#
 
-name="mc-riipeckx-io"
-rcvar="minecraft_enable"
+USER=nobody
+GROUP=nogroup
 
-start_cmd="${name}_start"
-stop_cmd="${name}_stop"
+INSTANCE=${RC_SVCNAME##*.}
+BASE="/opt/${INSTANCE}"
+PIDFILE="/var/run/${RC_SVCNAME}.pid"
+RCON="/usr/bin/rcon"
+BIN="$(ls ${BASE} -v 2>/dev/null | grep -i "server.*jar\\|craftbukkit.*jar\\|spigot.*jar\\|paper*.*jar\\|minecraft_server.*jar" | head -n 1)"
 
-minecraft_command="/opt/${name}/start.sh"
-pidfile="/var/run/${name}.pid"
-command="/usr/sbin/daemon"
-command_args="-P ${pidfile} -S -r -f ${minecraft_command}"
-
-load_rc_config $name
-: ${minecraft_enable:=no}
-: ${minecraft_servers:=""}
-
-minecraft_start() {
-  _servers=$*
-  if [ -z "$_servers" ]; then
-    _servers="$minecraft_servers"
-  fi
-
-  echo -n "Starting minecraft servers:"
-  for _server in $_servers; do
-    echo -n " ${_server}"
-
-    _dir="/opt/${_server}"
-    _pidfile="/var/run/${_server}.pid"
-    _cmd="${_dir}/start.sh"
-
-    cd "$_dir"
-    /usr/sbin/daemon -P ${_pidfile} -S -r -f ${_cmd}
-  done
-  echo "."
+config_get() {
+  echo $(grep ${1} "${BASE}/server.properties" | cut -d '=' -f 2)
 }
 
-minecraft_stop() {
-  _servers=$*
-  if [ -z "$_servers" ]; then
-    _servers="$minecraft_servers"
-  fi
-
-  echo -n "Stopping minecraft servers:"
-  for _server in $_servers; do
-    echo -n " ${_server}"
-
-    _pidfile="/var/run/${_server}.pid"
-
-    kill $(cat ${_pidfile})
-  done
-  echo "."
+depend() {
+  need net
+  after ipsec
 }
 
-run_rc_command $*
+start_pre() {
+  if [ -z "${BIN}" ]; then
+    eerror "${RC_SVCNAME} cannot find a proper server jar."
+    eerror "Check your game installation at ${BASE}."
+    return 1
+  fi
+
+  [ -f "${PIDFILE}" ] && rm ${PIDFILE}
+
+  return 0
+}
+
+start() {
+  ebegin "Starting Minecraft server ${INSTANCE}"
+  start-stop-daemon --start --chdir ${BASE} --pidfile ${PIDFILE} --make-pidfile --exec start.sh
+  eend $?
+}
+
+stop_pre() {
+  if [ ! -f "${BASE}/server.properties" ]; then
+    eerror "${RC_SVCNAME} cannot find a proper server config file."
+    eerror "Check your game installation at ${BASE}."
+    return 1
+  fi
+
+  return 0
+}
+
+stop() {
+  ebegin "Stopping Minecraft server ${INSTANCE}"
+
+  if [ "$(config_get enable-rcon)" = "true" ]; then
+    # Fetch rcon configuration
+    RCON_SRV=$(config_get server.ip)
+    RCON_PORT=$(config_get rcon.port)
+    RCON_PASS=$(config_get rcon.password)
+
+    # Try to soft kill the server
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} save-all 1>/dev/null 2>&1
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} stop 1>/dev/null 2>&1
+
+    i=0
+    PID=$(cat ${PIDFILE})
+
+    while [ "${i}" -le 30 ]; do
+      kill -0 ${PID} 2>/dev/null && sleep 1 || break
+      i=$((i + 1))
+    done
+  fi
+
+  # Hard stop the server
+  start-stop-daemon --stop --chdir ${BASE} --pidfile ${PIDFILE} --user ${USER} --group ${GROUP} --retry 5 2>/dev/null
+  eend 0
+}
+
+status() {
+  if [ "$(config_get enable-rcon)" = "true" ]; then
+    # Fetch rcon configuration
+    RCON_SRV=$(config_get server.ip)
+    RCON_PORT=$(config_get rcon.port)
+    RCON_PASS=$(config_get rcon.password)
+
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} version
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} tps
+  fi
+}
