@@ -75,6 +75,10 @@ stop() {
 
     # Try to soft kill the server
     ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} save-all 1>/dev/null 2>&1
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will shutdown in 10 secs..." 1>/dev/null 2>&1
+    sleep 5
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "say Server will shutdown in 5 secs..." 1>/dev/null 2>&1
+    sleep 5
     ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} stop 1>/dev/null 2>&1
 
     i=0
@@ -98,7 +102,6 @@ status() {
     RCON_PORT=$(config_get rcon.port)
     RCON_PASS=$(config_get rcon.password)
 
-    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} version
-    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} tps
+    ${RCON} -H ${RCON_SRV:-localhost} -p ${RCON_PORT} -P ${RCON_PASS} "fabric tps"
   fi
 }
