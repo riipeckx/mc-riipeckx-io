@@ -4,8 +4,6 @@
 # REQUIRE: networking
 # KEYWORD:
 
-. /etc/rc.subr
-
 name="mc-riipeckx-io"
 rcvar="minecraft_enable"
 
