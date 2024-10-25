@@ -3,11 +3,7 @@
 # Vars
 BASE=$(pwd)
 SERVICE_NAME=mc-riipeckx-io
-RCON_PASS=$(config_get rcon.password)
-
-define config_get()
-  echo $(grep ${1} "${BASE}/server.properties" | cut -d '=' -f 2)
-endef
+RCON_PASS=$(shell grep "rcon.password" server.properties | cut -d '=' -f 2)
 
 ifeq (console,$(firstword $(MAKECMDGOALS)))
   RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
@@ -26,8 +22,8 @@ stop: # Stop Minecraft server
 status: # Get Minecraft server status
 	@rc-service $(SERVICE_NAME) status
 
-log: # Follow the server logs
-	@/usr/bin/tail -f ./logs/latest.log
-
 console: # Send a command using RCON
 	@/usr/bin/rcon -H localhost -p 25575 -P $(RCON_PASS) $(RUN_ARGS)
+
+output: # Follow the server logs
+	@/usr/bin/tail -f ./logs/latest.log
