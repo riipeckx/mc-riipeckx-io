@@ -4,7 +4,7 @@
 BASE=$(pwd)
 RCON=$(which rcon)
 SERVICE_NAME=mc-riipeckx-io
-RCON_SRV=localhost
+RCON_SRV="localhost"
 RCON_PORT=$(config_get rcon.port)
 RCON_PASS=$(config_get rcon.password)
 
