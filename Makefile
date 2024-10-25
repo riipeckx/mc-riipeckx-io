@@ -2,7 +2,6 @@
 
 # Vars
 BASE=$(pwd)
-RCON=$(which rcon)
 SERVICE_NAME=mc-riipeckx-io
 RCON_SRV="localhost"
 RCON_PORT=$(config_get rcon.port)
@@ -30,4 +29,4 @@ status: # Get status from RCON
 	@rc-service $(SERVICE_NAME) status
 
 console: # Send a command via RCON
-	@$(RCON) -H $(RCON_SRV) -p $(RCON_PORT) -P $(RCON_PASS) $(RUN_ARGS)
+	@/usr/bin/rcon -H $(RCON_SRV) -p $(RCON_PORT) -P $(RCON_PASS) $(RUN_ARGS)
