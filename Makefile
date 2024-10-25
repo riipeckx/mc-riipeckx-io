@@ -21,13 +21,13 @@ help: # Print this help message
 	@grep -E '^[a-zA-Z0-9_]+:.*#.*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*#"} {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 start: # Start the Minecraft server
-	rc-service mc-riipeckx-io start
+	@rc-service mc-riipeckx-io start
 
 stop: # Stop the Minecraft server
-	rc-service mc-riipeckx-io stop
+	@rc-service mc-riipeckx-io stop
 
 status: # Get status from RCON
-	rc-service mc-riipeckx-io status
+	@rc-service mc-riipeckx-io status
 
 console: # Send a command via RCON
-	echo $(RCON_CMD) $(RUN_ARGS)
+	$(RCON_CMD) $(RUN_ARGS)
