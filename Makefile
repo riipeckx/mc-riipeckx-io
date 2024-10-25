@@ -27,3 +27,13 @@ console: # Connect to RCON console
 
 output: # Follow the server logs
 	@/usr/bin/tail -f ./logs/latest.log
+
+	# 
+
+cleanup: # Cleanup server folder
+	@read -p "Are you sure? [y/N] " ans && ans=$${ans:-N} ; \
+	if [ $${ans} = y ] || [ $${ans} = Y ]; then \
+		@/usr/bin/rm -rf .fabric libraries logs versions usercache.json;\
+	else \
+		exit 1;\
+	fi
