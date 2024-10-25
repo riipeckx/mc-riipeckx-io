@@ -27,7 +27,7 @@ status: # Get Minecraft server status
 	@rc-service $(SERVICE_NAME) status
 
 log: # Follow the server logs
-	@/usr/bin/tail -f logs/latest.log
+	@/usr/bin/tail -f ./logs/latest.log
 
 console: # Send a command using RCON
 	@/usr/bin/rcon -H localhost -p 25575 -P $(RCON_PASS) $(RUN_ARGS)
