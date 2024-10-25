@@ -22,7 +22,7 @@ stop: # Stop Minecraft server
 status: # Get Minecraft server status
 	@rc-service $(SERVICE_NAME) status
 
-console: # Send a command using RCON
+console: # Connect to RCON console
 	@/usr/bin/rcon -H localhost -p 25575 -P $(RCON_PASS) $(RUN_ARGS)
 
 output: # Follow the server logs
