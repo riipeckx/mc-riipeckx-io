@@ -12,7 +12,7 @@ _All commands must be run as root_
 ### Create symlink in `/etc/init.d`
 
 ```shell
-ln -s minecraft /etc/init.d/minecraft-servers
+➜ ln -s "$PWD"/minecraft /etc/init.d/minecraft-servers
 ```
 
 ### Add service to `boot` level
