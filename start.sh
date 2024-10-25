@@ -24,4 +24,4 @@ JAVAFLAGS="-Xms3072M \
 -XX:G1HeapRegionSize=8M \
 -XX:G1ReservePercent=20"
 
-java $JAVAFLAGS -jar server.jar --nogui
+java $JAVAFLAGS -jar server.jar --background --nogui
