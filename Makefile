@@ -3,8 +3,6 @@
 # Vars
 BASE=$(pwd)
 SERVICE_NAME=mc-riipeckx-io
-RCON_SRV="localhost"
-RCON_PORT=$(config_get rcon.port)
 RCON_PASS=$(config_get rcon.password)
 
 define config_get()
@@ -19,14 +17,17 @@ endif
 help: # Print this help message
 	@grep -E '^[a-zA-Z0-9_]+:.*#.*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*#"} {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-start: # Start the Minecraft server
+start: # Start Minecraft server
 	@rc-service $(SERVICE_NAME) start
 
-stop: # Stop the Minecraft server
+stop: # Stop Minecraft server
 	@rc-service $(SERVICE_NAME) stop
 
-status: # Get status from RCON
+status: # Get Minecraft server status
 	@rc-service $(SERVICE_NAME) status
 
-console: # Send a command via RCON
-	@/usr/bin/rcon -H $(RCON_SRV) -p $(RCON_PORT) -P $(RCON_PASS) $(RUN_ARGS)
+logs: # Follow the server logs
+	tail -f logs/latest.log
+
+console: # Send a command using RCON
+	@/usr/bin/rcon -H localhost -p 25575 -P $(RCON_PASS) $(RUN_ARGS)
