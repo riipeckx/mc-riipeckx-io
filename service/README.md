@@ -9,24 +9,30 @@ system-provided init program, normally `/sbin/init`.
 
 * `rcon`
 
-In order to setup provided [minecraft](./minecraft) OpenRC service, follow this :
+In order to setup provided [mc-riipeckx-io](./mc-riipeckx-io) OpenRC service, follow this :
 
 _All commands must be run as root_
 
 ### Create symlink in `/etc/init.d`
 
 ```shell
-➜ ln -s "$PWD"/minecraft /etc/init.d/minecraft-servers
+ln -s "$PWD"/mc-riipeckx-io /etc/init.d/mc-riipeckx-io
 ```
 
 ### Add service to `boot` level
 
 ```shell
-rc-update add minecraft-servers default
+rc-update add mc-riipeckx-io default
 ```
 
 ### Start the service now
 
 ```shell
-rc-service minecraft-servers start
+rc-service mc-riipeckx-io start
+```
+
+### Get the service status
+
+```shell
+rc-service mc-riipeckx-io status
 ```
