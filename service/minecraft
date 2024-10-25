@@ -1,5 +1,5 @@
 #!/sbin/openrc-run
-# /etc/init.d/minecraft
+# /etc/init.d/mc-riipeckx-io
 #
 # Minecraft - OpenRC scripts
 # Copyright (C) 2017-2019 João Brázio [joao@brazio.org]
