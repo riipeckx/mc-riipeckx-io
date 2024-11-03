@@ -1,16 +1,14 @@
 [
-  [
-    {
-      "uuid": "6b9e3711-07f2-46e3-87da-9c849b49be9a",
-      "name": "riipeckx"
-    },
-    {
-      "uuid": "39c3c93f-e75a-4684-9a7a-6e08c94eacf1",
-      "name": "GomGomTHZ"
-    },
-    {
-      "uuid": "fa068609-1a38-4aee-abc4-0d8343e8630b",
-      "name": "MrDeskainy"
-    }
-  ]
+  {
+    "name": "riipeckx",
+    "uuid": "6b9e3711-07f2-46e3-87da-9c849b49be9a"
+  },
+  {
+    "name": "GomGomTHZ",
+    "uuid": "39c3c93f-e75a-4684-9a7a-6e08c94eacf1"
+  },
+  {
+    "name": "MrDeskainy",
+    "uuid": "fa068609-1a38-4aee-abc4-0d8343e8630b"
+  }
 ]
