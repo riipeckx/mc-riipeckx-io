@@ -26,4 +26,4 @@ logs: # Print and follow development container logs
 
 clean: # Remove builded site
 	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
-	@rm -r _site .jekyll-cache &>/dev/null
+	@rm -r .sass-cache _site .jekyll-cache &>/dev/null
