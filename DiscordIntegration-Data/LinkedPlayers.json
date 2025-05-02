@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "discordID": "272567392763379713",
+    "mcPlayerUUID": "6b9e3711-07f2-46e3-87da-9c849b49be9a",
+    "floodgateUUID": "",
+    "settings": {
+      "useDiscordNameInChannel": true,
+      "ignoreDiscordChatIngame": false,
+      "ignoreReactions": false,
+      "pingSound": true,
+      "hideFromDiscord": false
+    }
+  }
+]
