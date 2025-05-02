@@ -6,6 +6,6 @@ maximum_decay_ticks = 20
 #Default Value: 5
 #Range: > 0
 minimum_decay_ticks = 5
-#Leaves not attached to their own kind will decay.
+#Leaves not attached to their own kind will decay. Does not work properly with trees that generate different leave blocks like azalea.
 #Default Value: false
 ignore_other_leave_types = false
