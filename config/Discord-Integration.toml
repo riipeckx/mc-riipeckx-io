@@ -10,17 +10,17 @@ botChannel = "1367802765765513256"
 # PLACEHOLDERS:
 # %online% - Online Players
 # %max% - Maximum Player Amount
-botStatusName = "%online% players online"
+botStatusName = "%online% joueurs en ligne"
 # The bots status message for 1 online player, set to empty to use botStatusName
 # PLACEHOLDERS:
 # %online% - Online Players
 # %max% - Maximum Player Amount
-botStatusNameSingular = "%online% player online"
+botStatusNameSingular = "%online% joueur en ligne"
 # The bots status message for no online players, set to empty to use botStatusName
 # PLACEHOLDERS:
 # %online% - Online Players
 # %max% - Maximum Player Amount
-botStatusNameEmpty = "No-one is online"
+botStatusNameEmpty = "Personne n'est en ligne"
 # Type of the bots status
 # Allowed Values: DISABLED,PLAYING,WATCHING,LISTENING,STREAMING,COMPETING,CUSTOM
 botStatusType = "CUSTOM"
