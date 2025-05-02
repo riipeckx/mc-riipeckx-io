@@ -193,7 +193,7 @@ bot = "This user is an bot"
   linkNumberNAN = "This is not a number!"
   # Message shown to players who are not whitelisted using discord
   # No effect if discord whitelist is off
-  notWhitelistedCode = "§cYou are not whitelisted.\nJoin the discord server for more information\nhttps://discord.gg/someserver\nYour Whitelist-Code is: §6%code%"
+  notWhitelistedCode = "§cYou are not whitelisted.\nJoin the discord server for more information\nhttps://discord.gg/UhYNDjwVqF\nYour Whitelist-Code is: §6%code%"
   # Message shown to players who are whitelisted using discord but don't have the required role anymore
   # No effect if discord whitelist is off
   notWhitelistedRole = "§cYou are whitelisted, but you need an role to join.\nSee the discord server for more information"
