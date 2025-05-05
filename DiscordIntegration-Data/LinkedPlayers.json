@@ -10,5 +10,17 @@
       "pingSound": true,
       "hideFromDiscord": false
     }
+  },
+  {
+    "discordID": "1368550866189025290",
+    "mcPlayerUUID": "39c3c93f-e75a-4684-9a7a-6e08c94eacf1",
+    "floodgateUUID": "",
+    "settings": {
+      "useDiscordNameInChannel": true,
+      "ignoreDiscordChatIngame": false,
+      "ignoreReactions": false,
+      "pingSound": true,
+      "hideFromDiscord": false
+    }
   }
 ]

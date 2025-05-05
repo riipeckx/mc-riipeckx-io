@@ -8,6 +8,7 @@ versions
 usercache.json
 **/*.log
 .envrc
+defaultconfigs/
 
 # Plasmovoice config
 config/plasmovoice/server/languages/.crowdin/

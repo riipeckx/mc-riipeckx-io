@@ -125,7 +125,7 @@ charBlacklist = [  "࿕", "࿖"  ]
 [embedMode]
   # Enabling this will send configured messages as embed messages
   # See below configuration options of this category to see what messages can be moved to embeds
-  enabled = false
+  enabled = true
 
     # Starting & Started Messages
     [embedMode.startMessages]
@@ -202,7 +202,7 @@ charBlacklist = [  "࿕", "࿖"  ]
   deathsChannelID = "default"
   # Custom channel ID for advancement messages
   # Leave 'default' to use default channel
-  advancementChannelID = "default"
+  advancementChannelID = "1368916581941248121"
   # Custom channel for for in-game messages
   # Leave 'default' to use default channel
   chatOutputChannelID = "default"
