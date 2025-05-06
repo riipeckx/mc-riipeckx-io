@@ -10,7 +10,7 @@
   "allowDamagingUnnamedHostileMobs": true,
   "allowDamagingNamedHostileMobs": false,
   "claimProtectsFullWorldHeight": false,
-  "claimAreaHeightMultiplier": 1.0,
+  "claimAreaHeightMultiplier": 3.0,
   "makeClaimAreaChunkBound": false,
   "allowClaimOverlappingIfSameOwner": true,
   "allowFakePlayersToModify": false,
