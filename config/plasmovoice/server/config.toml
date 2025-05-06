@@ -1,10 +1,10 @@
 # Used to store server-related config file on the client
 # Set it to a single value on different servers if you want them to share config
-check_for_updates = true
-debug = false
-default_language = "fr_fr"
 server_id = "6076868d-e768-415d-9b47-1fb0be5735b5"
+default_language = "fr_fr"
+debug = false
 use_crowdin_translations = true
+check_for_updates = true
 
 [host]
 ip = "0.0.0.0"
@@ -16,18 +16,18 @@ port = 0
 # 12000
 # 24000
 # 48000
-client_mod_required = false
-client_mod_required_check_timeout_ms = 3000
+sample_rate = 48000
 keep_alive_timeout_ms = 15000
 mtu_size = 1024
-sample_rate = 48000
+client_mod_required = false
+client_mod_required_check_timeout_ms = 3000
 # Minimum required version for a client with the mod to connect to the voice server.
 # This will not kick the player but will simply not connect them to the voice server and will suggest downloading the required version.
 client_mod_min_version = "2.0.0"
 
 [voice.proximity]
-default_distance = 16
 distances = [8, 16, 32]
+default_distance = 16
 
 [voice.opus]
 # Opus application mode
@@ -40,3 +40,5 @@ mode = "VOIP"
 bitrate = -1000
 
 [voice.weights]
+
+
