@@ -18,7 +18,7 @@
   "dimensionBlacklist": [
     "minecraft:the_nether",
     "minecraft:the_end"
-  ],               
+  ],
   "regionBlacklist": {},
   "enabledAugments": {
     "goml:ender_binding": true,
