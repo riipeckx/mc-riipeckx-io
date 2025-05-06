@@ -9,7 +9,7 @@
   "enablePvPinClaims": false,
   "allowDamagingUnnamedHostileMobs": true,
   "allowDamagingNamedHostileMobs": false,
-  "claimProtectsFullWorldHeight": false,
+  "claimProtectsFullWorldHeight": true,
   "claimAreaHeightMultiplier": 3.0,
   "makeClaimAreaChunkBound": false,
   "allowClaimOverlappingIfSameOwner": true,
