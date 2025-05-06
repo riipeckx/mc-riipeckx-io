@@ -1,10 +1,10 @@
 # Used to store server-related config file on the client
 # Set it to a single value on different servers if you want them to share config
 server_id = "6076868d-e768-415d-9b47-1fb0be5735b5"
-default_language = "en_us"
+default_language = "fr_fr"
 debug = false
 use_crowdin_translations = true
-check_for_updates = true
+check_for_updates = false
 
 [host]
 ip = "0.0.0.0"
