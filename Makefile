@@ -33,4 +33,4 @@ output: # Follow the server logs
 
 clean:
 	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
-	@rm -r .fabric libraries logs versions usercache.json world 2>/dev/null
+	@rm -r crash-reports defaultconfigs .fabric libraries logs versions usercache.json world 2>/dev/null
