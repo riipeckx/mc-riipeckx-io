@@ -22,5 +22,29 @@
       "pingSound": true,
       "hideFromDiscord": false
     }
+  },
+  {
+    "discordID": "689999399744438316",
+    "mcPlayerUUID": "8410c0b5-631e-4ce5-8a87-36bf757e0154",
+    "floodgateUUID": "",
+    "settings": {
+      "useDiscordNameInChannel": true,
+      "ignoreDiscordChatIngame": false,
+      "ignoreReactions": false,
+      "pingSound": true,
+      "hideFromDiscord": false
+    }
+  },
+  {
+    "discordID": "329607971958947844",
+    "mcPlayerUUID": "760bb3d4-7352-4e7e-8dc7-e70a1a9c0d9c",
+    "floodgateUUID": "",
+    "settings": {
+      "useDiscordNameInChannel": true,
+      "ignoreDiscordChatIngame": false,
+      "ignoreReactions": false,
+      "pingSound": true,
+      "hideFromDiscord": false
+    }
   }
 ]
