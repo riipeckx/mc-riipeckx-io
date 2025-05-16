@@ -29,7 +29,7 @@
     "goml:force_field": false,
     "goml:chaos_zone": false,
     "goml:heaven_wings": false,
-    "goml:village_core": true,
+    "goml:village_core": false,
     "goml:withering_seal": true,
     "goml:pvp_arena": true
   },
